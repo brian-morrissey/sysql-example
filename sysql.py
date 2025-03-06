@@ -65,6 +65,9 @@ while True:
 end_time = time.time()
 print(f"\nTotal execution time: {end_time - start_time:.2f} seconds")
 
+# Print the total number of items
+print(f"\nTotal number of items retrieved: {len(total_items)}")
+
 # Loop through the items and print all the returned attributes
 for item in total_items:
     try:
