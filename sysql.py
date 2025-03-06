@@ -17,7 +17,7 @@ MATCH Vulnerability AFFECTS KubeWorkload OPTIONAL MATCH KubeWorkload HAS Contain
 RETURN KubeWorkload.clusterName, KubeWorkload.namespaceName, KubeWorkload.name, Vulnerability.acceptedRisk,
        Vulnerability.cvssScore, Vulnerability.fixedInVersion, Vulnerability.name, Vulnerability.packageName,
        Vulnerability.packageVersion, Vulnerability.severity, Image.baseOS, Image.imageReference, Image.repository,
-       Image.registry ORDER BY Vulnerability.lastModified LIMIT 10000 OFFSET 0;
+       Image.registry ORDER BY Vulnerability.lastModified LIMIT 1000 OFFSET 0;
 """
 
 # Encode the query
@@ -59,7 +59,7 @@ while True:
     total_items.extend(data['items'])
 
     # Increment the offset for the next request
-    offset += 10000
+    offset += 1000
 
 # Print out total execution time
 end_time = time.time()
